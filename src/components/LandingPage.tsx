@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -160,9 +158,9 @@ export default function LandingPage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Planes de asistencia médica eficientes, rápidos y siempre cerca tuyo ✅</h1>
               <p className="text-xl md:text-2xl mb-8">Por fin llegó un plan que se adapta a vos y no al revés.</p>
-              <Link href="#plans" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
+              <a href="#plans" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
                 Ver Planes
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -211,7 +209,8 @@ export default function LandingPage() {
                         href="https://wa.me/5491126717461" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600  hover:bg-green-700"
+                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+                      
                       >
                         <MessageCircle className="mr-2 h-5 w-5" />
                         Contactar por WhatsApp
@@ -272,11 +271,9 @@ export default function LandingPage() {
                 <div key={index} className="flex-shrink-0 w-80 border-2 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" style={{ borderColor: ['#E56399', '#33658A', '#29A2AF'][index] }}>
                   <div className="flex flex-col items-center justify-center p-6">
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#218A7E] mb-4">
-                      <Image
+                      <img
                         src={review.avatar}
                         alt={review.name}
-                        width={80}
-                        height={80}
                         className="w-full h-full object-cover"
                       />
                     </div>
