@@ -151,8 +151,8 @@ export default function LandingPage() {
 
       <main className="flex-grow">
         {/* Hero Section with Vimeo Video */}
-        <section className="relative">
-          <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
+        <section className="relative max-h-[600px] overflow-hidden">
+          <div style={{padding:'56.25% 0 0 0', position:'relative', maxHeight: '600px'}}>
             <iframe 
               src="https://player.vimeo.com/video/1017222724?background=1&autoplay=1&loop=1&byline=0&title=0"
               style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}}
@@ -217,9 +217,8 @@ export default function LandingPage() {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
-                      
                       >
-                        <MessageCircle className="mr-2 h-5 w-5" />
+                        <MessageCircle className="mr-2 h-5  w-5" />
                         Contactar por WhatsApp
                       </a>
                     </div>
