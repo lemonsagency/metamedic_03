@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://player.vimeo.com/api/player.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const keyPoints = [
     { 
@@ -139,28 +152,24 @@ export default function LandingPage() {
       </header>
 
       <main className="flex-grow">
-        {/* Hero Section with Video Background */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 w-full h-full">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source src="https://player.vimeo.com/progressive_redirect/playback/1017222724/rendition/1080p/file.mp4?loc=external&signature=c0c0c9c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+        {/* Hero Section with Vimeo Video */}
+        <section className="relative">
+          <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
+            <iframe 
+              src="https://player.vimeo.com/video/1017222724?background=1&autoplay=1&loop=1&byline=0&title=0"
+              style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}}
+              frameBorder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
           </div>
-          <div className="relative z-10 py-20 text-center text-white">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="text-center text-white z-10 px-4">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Planes de asistencia médica eficientes, rápidos y siempre cerca tuyo ✅</h1>
               <p className="text-xl md:text-2xl mb-8">Por fin llegó un plan que se adapta a vos y no al revés.</p>
-              <a href="#plans" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
+              <Link href="#plans" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
                 Ver Planes
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -210,9 +219,9 @@ export default function LandingPage() {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
-                      
                       >
                         <MessageCircle className="mr-2 h-5 w-5" />
+                        
                         Contactar por WhatsApp
                       </a>
                     </div>
@@ -271,9 +280,11 @@ export default function LandingPage() {
                 <div key={index} className="flex-shrink-0 w-80 border-2 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" style={{ borderColor: ['#E56399', '#33658A', '#29A2AF'][index] }}>
                   <div className="flex flex-col items-center justify-center p-6">
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#218A7E] mb-4">
-                      <img
+                      <Image
                         src={review.avatar}
                         alt={review.name}
+                        width={80}
+                        height={80}
                         className="w-full h-full object-cover"
                       />
                     </div>
