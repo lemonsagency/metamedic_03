@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
-import Image from 'next/image';
-import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -163,14 +161,12 @@ export default function LandingPage() {
                 <p className="text-lg md:text-xl mb-6 md:mb-8 text-[#4A4A4A]">
                   Por fin llegó un plan que se adapta a vos y no al revés.
                 </p>
-                <a href="#nuestros-planes">
-                  <Button className="bg-green-500 text-white hover:bg-green-600 px-8 py-3 text-lg mx-auto md:mx-0">
-                    Ver Planes
-                  </Button>
+                <a href="#nuestros-planes" className="bg-green-500 text-white hover:bg-green-600 px-8 py-3 text-lg mx-auto md:mx-0 inline-block rounded-md">
+                  Ver Planes
                 </a>
               </div>
               <div className="md:w-1/2 flex justify-center md:justify-end">
-                <Image
+                <img
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/meta_character-qfGNgLSyoLwyr3LvOXCYKPKYcPFZ2J.png"
                   width={280}
                   height={280}
