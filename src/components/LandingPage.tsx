@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, Facebook, Twitter, Instagram, Check, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart } from 'lucide-react';
+import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -87,9 +89,9 @@ export default function LandingPage() {
   ];
 
   const reviews = [
-    { name: 'María G.', comment: 'MetaMedic me salvó en una emergencia. ¡Excelente servicio!', avatar: '/placeholder.svg' },
-    { name: 'Juan P.', comment: 'La atención es rápida y eficiente. Totalmente recomendado.', avatar: '/placeholder.svg' },
-    { name: 'Ana L.', comment: 'Los planes son accesibles y la cobertura es muy completa.', avatar: '/placeholder.svg' },
+    { name: 'María G.', comment: 'MetaMedic me salvó en una emergencia. ¡Excelente servicio!', avatar: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sin%20t%C3%ADtulo%20(1)-mg1YEBSrKZrhY4POgsO0lnyoEGcOdB.jpeg' },
+    { name: 'Juan P.', comment: 'La atención es rápida y eficiente. Totalmente recomendado.', avatar: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sin%20t%C3%ADtulo-tUUJfUvOHTQecfraR5WLfKJbZYcxE2.jpeg' },
+    { name: 'Ana L.', comment: 'Los planes son accesibles y la cobertura es muy completa.', avatar: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sin%20t%C3%ADtulo%20(2)-BwjOI8tmyp5kVcOTbYRim5HmEXzDpc.jpeg' },
   ];
 
   const faqs = [
@@ -131,7 +133,7 @@ export default function LandingPage() {
             <div className="flex items-center">
               <a href="tel:08102203220" className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md flex items-center whitespace-nowrap">
                 <Phone className="mr-2 h-5 w-5" />
-                <span className="hidden sm:inline">Llamar</span> 0810 220 3220
+                <span>0810 220 3220</span>
               </a>
             </div>
           </div>
@@ -139,11 +141,29 @@ export default function LandingPage() {
       </header>
 
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-green-100 py-20 text-center">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#218A7E]">Planes de asistencia médica eficientes, rápidos y siempre cerca tuyo ✅</h1>
-            <p className="text-xl md:text-2xl text-gray-700">Por fin llegó un plan que se adapta a vos y no al revés.</p>
+        {/* Hero Section with Video Background */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 w-full h-full">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/1017222724/rendition/1080p/file.mp4?loc=external&signature=c0c0c9c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+          </div>
+          <div className="relative z-10 py-20 text-center text-white">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">Planes de asistencia médica eficientes, rápidos y siempre cerca tuyo ✅</h1>
+              <p className="text-xl md:text-2xl mb-8">Por fin llegó un plan que se adapta a vos y no al revés.</p>
+              <Link href="#plans" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
+                Ver Planes
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -186,16 +206,12 @@ export default function LandingPage() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6 space-y-4">
-                      <button className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center py-3 text-lg mb-4 rounded-md">
-                        <MessageCircle className="mr-2 h-6 w-6" />
-                        CONTACTAR
-                      </button>
+                    <div className="mt-6">
                       <a 
                         href="https://wa.me/5491126717461" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+                        className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600  hover:bg-green-700"
                       >
                         <MessageCircle className="mr-2 h-5 w-5" />
                         Contactar por WhatsApp
@@ -204,30 +220,6 @@ export default function LandingPage() {
                   </div>
                 </div>
               ))}
-            </div>
-          </section>
-
-          {/* Form Section */}
-          <section id="form" className="mb-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#218A7E] mb-6">Solicita más información</h2>
-            <div className="max-w-3xl mx-auto">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/y8y79r9jc6q8azqYH3Fb"
-                style={{ width: '100%', height: '512px', border: 'none', borderRadius: '3px' }}
-                id="inline-y8y79r9jc6q8azqYH3Fb"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Metamedic form"
-                data-height="512"
-                data-layout-iframe-id="inline-y8y79r9jc6q8azqYH3Fb"
-                data-form-id="y8y79r9jc6q8azqYH3Fb"
-                title="Metamedic form"
-              />
             </div>
           </section>
 
@@ -275,14 +267,16 @@ export default function LandingPage() {
           {/* Reviews Section */}
           <section id="reviews" className="mb-20 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#218A7E] mb-6">Opiniones de nuestros clientes</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex overflow-x-auto space-x-6 pb-4">
               {reviews.map((review, index) => (
-                <div key={index} className="border-2 border-[#218A7E] rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div key={index} className="flex-shrink-0 w-80 border-2 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" style={{ borderColor: ['#E56399', '#33658A', '#29A2AF'][index] }}>
                   <div className="flex flex-col items-center justify-center p-6">
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#218A7E] mb-4">
-                      <img
+                      <Image
                         src={review.avatar}
                         alt={review.name}
+                        width={80}
+                        height={80}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -296,11 +290,10 @@ export default function LandingPage() {
 
           {/* Key Message Section */}
           <section className="mb-20 bg-[#33658A] text-white p-8 rounded-lg text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Tu salud, nuestra prioridad</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Te cuidamos como vos queres</h2>
             <p className="text-lg md:text-xl max-w-3xl mx-auto">
-              En MetaMedic, entendemos que las emergencias médicas pueden ser estresantes. Por eso, estamos
-              comprometidos a brindarte la mejor atención posible, cuando más lo necesitas. Con nuestros planes
-              flexibles y atención personalizada, puedes estar tranquilo sabiendo que siempre estaremos ahí para ti.
+              En Metamedic entendemos que los inconvenientes medicos pueden ser estresantes,
+              por eso estamos comprometidos a acompariarte a vos ya tu familia cuando mas lo necesitas
             </p>
           </section>
         </div>
