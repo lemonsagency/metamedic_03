@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
+import Image from 'next/image';
+import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -150,24 +152,32 @@ export default function LandingPage() {
       </header>
 
       <main className="flex-grow">
-        {/* Hero Section with Vimeo Video */}
-        <section className="relative max-h-[600px] overflow-hidden">
-          <div style={{padding:'56.25% 0 0 0', position:'relative', maxHeight: '600px'}}>
-            <iframe 
-              src="https://player.vimeo.com/video/1017222724?background=1&autoplay=1&loop=1&byline=0&title=0"
-              style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}}
-              frameBorder="0" 
-              allow="autoplay; fullscreen; picture-in-picture" 
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="text-center text-white z-10 px-4">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Planes de asistencia médica eficientes, rápidos y siempre cerca tuyo ✅</h1>
-              <p className="text-xl md:text-2xl mb-8">Por fin llegó un plan que se adapta a vos y no al revés.</p>
-              <a href="#plans" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
-                Ver Planes
-              </a>
+        {/* Updated Hero Section with button linking to "Nuestros Planes" */}
+        <section className="bg-[#C5E6FF] py-12 md:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-[#262626]">
+                  Planes de asistencia médica eficientes, rápidos y siempre cerca tuyo
+                </h1>
+                <p className="text-lg md:text-xl mb-6 md:mb-8 text-[#4A4A4A]">
+                  Por fin llegó un plan que se adapta a vos y no al revés.
+                </p>
+                <a href="#nuestros-planes">
+                  <Button className="bg-green-500 text-white hover:bg-green-600 px-8 py-3 text-lg mx-auto md:mx-0">
+                    Ver Planes
+                  </Button>
+                </a>
+              </div>
+              <div className="md:w-1/2 flex justify-center md:justify-end">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/meta_character-qfGNgLSyoLwyr3LvOXCYKPKYcPFZ2J.png"
+                  width={280}
+                  height={280}
+                  alt="Medical professional illustration"
+                  className="w-[70%] md:w-full h-auto"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -179,7 +189,7 @@ export default function LandingPage() {
             <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
               MetaMedic es la solución perfecta para quienes buscan una atención médica rápida, cercana, accesible y personalizada. Además, es el complemento ideal para tu obra social o prepaga.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {keyPoints.map((point, index) => (
                 <div key={index} className="flex flex-col items-center text-center">
                   <img src={point.icon} alt={point.title} className="w-20 h-20 mb-4" />
@@ -190,8 +200,8 @@ export default function LandingPage() {
             </div>
           </section>
 
-          {/* Plans Section */}
-          <section id="plans" className="mb-20 text-center">
+          {/* Updated Plans Section with correct id */}
+          <section id="nuestros-planes" className="mb-20 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#218A7E] mb-6">Nuestros Planes</h2>
             <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
               En MetaMedic entendemos que cada persona tiene necesidades únicas, por eso ofrecemos planes de salud diseñados a tu medida. ¡Elige el que mejor se adapte a ti y regístrate ahora!
@@ -206,7 +216,7 @@ export default function LandingPage() {
                     <ul className="space-y-3 mt-4 text-left">
                       {plan.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
-                          <Check className="mr-2 h-5 w-5 text-[#218A7E] flex-shrink-0" />
+                          <Check className="mr-2 h-5 w-5  text-[#218A7E] flex-shrink-0" />
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -218,7 +228,7 @@ export default function LandingPage() {
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
                       >
-                        <MessageCircle className="mr-2 h-5  w-5" />
+                        <MessageCircle className="mr-2 h-5 w-5" />
                         Contactar por WhatsApp
                       </a>
                     </div>
