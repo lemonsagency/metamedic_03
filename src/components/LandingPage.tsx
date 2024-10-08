@@ -167,7 +167,7 @@ export default function LandingPage() {
       </header>
 
       <main className="flex-grow">
-        {/* Updated Hero Section with new heading */}
+        {/* Hero Section */}
         <section className="bg-[#C5E6FF] dark:bg-[#C5E6FF] py-12 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -196,13 +196,13 @@ export default function LandingPage() {
         </section>
 
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          {/* About Section */}
+          {/* About Section with updated grid layout */}
           <section id="about" className="mb-20 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#218A7E] dark:text-[#218A7E] mb-6">¿Qué es MetaMedic?</h2>
             <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-[#262626] dark:text-[#262626]">
               MetaMedic es la solución perfecta para quienes buscan una atención médica rápida, cercana, accesible y personalizada. Además, es el complemento ideal para tu obra social o prepaga.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 gap-8">
               {keyPoints.map((point, index) => (
                 <div key={index} className="flex flex-col items-center text-center">
                   <img src={point.icon} alt={point.title} className="w-20 h-20 mb-4" />
@@ -223,9 +223,8 @@ export default function LandingPage() {
               {plans.map((plan, index) => (
                 <div key={index} className="border-2 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl bg-white dark:bg-white" style={{ borderColor: plan.color }}>
                   <div className="p-6" style={{ backgroundColor: plan.color }}>
-                    <h3 className="text-white text-center text-2xl font-bold">{plan.name}</h3>
+                    <h3 className="text-white  text-center text-2xl font-bold">{plan.name}</h3>
                   </div>
-                  
                   <div className="p-6">
                     <ul className="space-y-3 mt-4 text-left">
                       {plan.features.map((feature, featureIndex) => (
