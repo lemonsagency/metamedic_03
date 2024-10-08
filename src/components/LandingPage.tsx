@@ -178,9 +178,9 @@ export default function LandingPage() {
                 <p className="text-lg md:text-xl mb-6 md:mb-8 text-[#4A4A4A] dark:text-[#4A4A4A]">
                   Por fin llegó un plan que se adapta a vos y no al revés.
                 </p>
-                <button className="bg-green-500 text-white hover:bg-green-600 px-8 py-3 text-lg mx-auto md:mx-0 rounded-md">
+                <a href="#plans" className="inline-block bg-green-500 text-white hover:bg-green-600 px-8 py-3 text-lg mx-auto md:mx-0 rounded-md">
                   Conocé más
-                </button>
+                </a>
               </div>
               <div className="md:w-1/2 flex justify-center md:justify-end">
                 <img
