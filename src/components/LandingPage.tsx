@@ -43,46 +43,57 @@ export default function LandingPage() {
       name: 'Plan Individual',
       color: '#33658A',
       features: [
-        'Cuidados personalizados, diseñados para ti.',
-        'Atención médica 24/7, disponible todo el año.',
-        'Videoconsultas con especialistas, para una atención rápida y eficaz.',
-        'Descuentos en farmacias, para que cuides tu salud al mejor precio.',
-        'Acceso a nuestra red de centros médicos.',
-      ],
-    },
-    {
-      name: 'Plan Mujer',
-      color: '#E56399',
-      features: [
-        'Diseñado para acompañarte en cada etapa de tu vida.',
-        'Acceso a ginecología y obstetricia.',
-        'Atención personalizada enfocada en la salud integral de la mujer.',
-        'Apoyo en salud mental y bienestar.',
-        'Programas de prevención y cuidado específicos para la mujer.',
+        'Turnos en médicos en 72hs',
+        'Este PLAN Incluye 3 consultas gratis por año',
+        'Importantes descuentos en más de 90 especialidades y prácticas médicas',
+        'Asistencia por ROBO en Vía Publica',
+        'Odontología – 1ra consulta Gratis',
+        'Videoconsulta',
+        'Descuentos en Farmacias',
+        'Seguro de Cirugías',
+        'Emergencias médicas 24 hs',
+        'Médico a domicilio',
       ],
     },
     {
       name: 'Plan Familiar',
       color: '#29A2AF',
       features: [
-        'Protege a quienes más quieres con planes integrales para toda la familia.',
-        'Turnos prioritarios para niños y adultos.',
-        'Servicios de emergencia y urgencias médicas, siempre disponibles.',
-        'Chequeos preventivos anuales para toda la familia.',
+        'Chequeo de Rutina bonificado',
+        'Importantes descuentos en más de 90 especialidades y prácticas médicas',
+        'Este PLAN Incluye 3 consultas gratis por año',
+        'Asistencia por ROBO en Vía Publica, para toda tu familia',
+        'Descuentos en Farmacias',
+        'Seguro por Diagnóstico de Cáncer',
+        'Videoconsulta',
+        'Emergencias médicas 24 hs',
       ],
     },
     {
-      name: 'TERCERA EDAD',
+      name: 'Plan Mujer',
+      color: '#E56399',
+      features: [
+        'Chequeo Anual Ginecológico bonificado',
+        'Consultas Ginecológicas gratis y sin límite',
+        'Seguro de Cáncer Femenino hasta $2.500.000',
+        'Asistencia Nutricional Telefónica',
+        'Asistencia por ROBO en Vía Publica',
+        'Odontología – 1ra consulta Gratis',
+        '3 Consultas GRATIS por año',
+      ],
+    },
+    {
+      name: 'Plan Tercera Edad',
       color: '#33658A',
       features: [
         'Consultas Clínicas Bonificadas',
-        'Tarifa Preferencial en Cuidados en el Hogar (Enfermería, Acompañante, Cuidador)',
+        'Tarifa Preferencial en Cuidados en el Hogar (Enfermería, Acompañante, cuidador)',
         'Asistencia Tecnológica Remota',
         'Asesor Previsional',
         'Servicio de Asistencia Legal',
-        'Asistencia por ROBO en vía pública',
+        'Asistencia por ROBO en Vía Publica',
         'Asistencia Nutricional',
-        'Servicio de Asistente Personal',
+        'Servicio Asistente Personal',
         'Asistencia Veterinaria',
       ],
     },
@@ -217,13 +228,13 @@ export default function LandingPage() {
           <section id="plans" className="mb-20 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#218A7E] dark:text-[#218A7E] mb-6">Nuestros Planes</h2>
             <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-[#262626] dark:text-[#262626]">
-              En MetaMedic entendemos que cada persona tiene necesidades únicas, por eso ofrecemos planes de salud personalizados.
+              En MetaMedic entendemos que cada persona tiene necesidades únicas, por  eso ofrecemos planes de salud personalizados.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {plans.map((plan, index) => (
                 <div key={index} className="border-2 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl bg-white dark:bg-white" style={{ borderColor: plan.color }}>
                   <div className="p-6" style={{ backgroundColor: plan.color }}>
-                    <h3 className="text-white  text-center text-2xl font-bold">{plan.name}</h3>
+                    <h3 className="text-white text-center text-2xl font-bold">{plan.name}</h3>
                   </div>
                   <div className="p-6">
                     <ul className="space-y-3 mt-4 text-left">
