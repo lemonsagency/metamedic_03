@@ -334,7 +334,7 @@ return (
     <footer className="bg-black text-white py-8 px-4 text-center text-sm">
       <div className="max-w-7xl mx-auto">
         <div className="mb-4 text-white">
-          <p className="font-bold">Nombre legal del negocio: LEXXA SA</p>
+          <p className="font-bold">LEXXA SA</p>
           <p>Dirección: AVDA FEDERICO LACROZE 2206, Piso 5, CAPITAL FEDERAL, Buenos Aires 1425, Argentina</p>
           <p>Teléfono del negocio: 011 15-4079-1695</p>
         </div>
