@@ -247,7 +247,7 @@ export default function LandingPage() {
                     </ul>
                     <div className="mt-6">
                       <a 
-                        href="https://wa.link/ejuwgf" 
+                        href="https://wa.me/5491136785555?text=Hola!👋%20estoy%20interesado%20en%20los%20planes%20de%20salud%20de%20Metamedic!" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
