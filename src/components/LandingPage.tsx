@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://player.vimeo.com/api/player.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   const keyPoints = [
     { 
@@ -152,6 +142,31 @@ export default function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-white text-[#262626] dark:text-[#262626] font-poppins">
+      <Head>
+        <title>Metamedic | Planes de Salud</title>
+        <meta name="description" content="Planes de asistencia médica accesibles, con turnos en 72 horas y muy cerca tuyo." />
+        <link rel="icon" href="/favicon.ico" />
+        {/* Facebook Pixel Code */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '12345667');
+            fbq('track', 'PageView');
+          `
+        }} />
+        <noscript><img height="1" width="1" style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=12345667&ev=PageView&noscript=1"
+        /></noscript>
+        {/* End Facebook Pixel Code */}
+      </Head>
+
       {/* Announcement Bar */}
       <div className="bg-black text-white text-center py-2 text-sm">
         15% de descuento en todos los planes llamando hoy
@@ -207,9 +222,9 @@ export default function LandingPage() {
         </section>
 
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          {/* About Section with updated grid layout */}
+          {/* About Section */}
           <section id="about" className="mb-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#218A7E] dark:text-[#218A7E] mb-6">¿Qué es MetaMedic?</h2>
+            <h2  className="text-3xl md:text-4xl font-bold text-[#218A7E] dark:text-[#218A7E] mb-6">¿Qué es MetaMedic?</h2>
             <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-[#262626] dark:text-[#262626]">
               MetaMedic es la solución perfecta para quienes buscan una atención médica rápida, cercana, accesible y personalizada. Además, es el complemento ideal para tu obra social o prepaga.
             </p>
