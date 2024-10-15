@@ -1,8 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Update the document title
+    document.title = 'Metamedic | Planes de Salud';
+
+    // Add meta description
+    const metaDescription = document.createElement('meta');
+    metaDescription.name = 'description';
+    metaDescription.content = 'Planes de asistencia médica accesibles, con turnos en 72 horas y muy cerca tuyo.';
+    document.head.appendChild(metaDescription);
+
+    // Add favicon
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.href = '/favicon.ico';
+    document.head.appendChild(favicon);
+
+    // Add Facebook Pixel code
+    const script = document.createElement('script');
+    script.innerHTML = `
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '12345667');
+      fbq('track', 'PageView');
+    `;
+    document.head.appendChild(script);
+
+    const noscript = document.createElement('noscript');
+    const img = document.createElement('img');
+    img.height = 1;
+    img.width = 1;
+    img.style.display = 'none';
+    img.src = 'https://www.facebook.com/tr?id=12345667&ev=PageView&noscript=1';
+    noscript.appendChild(img);
+    document.head.appendChild(noscript);
+
+    // Cleanup function
+    return () => {
+      document.head.removeChild(metaDescription);
+      document.head.removeChild(favicon);
+      document.head.removeChild(script);
+      document.head.removeChild(noscript);
+    };
+  }, []);
 
   const keyPoints = [
     { 
@@ -193,7 +243,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-12 px-4  sm:px-6 lg:px-8">
           {/* About Section */}
           <section id="about" className="mb-20 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#218A7E] dark:text-[#218A7E] mb-6">¿Qué es MetaMedic?</h2>
