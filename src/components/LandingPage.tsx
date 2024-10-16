@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Facebook, Twitter, Instagram, MessageCircle, UserCheck, Stethoscope, Puzzle, Shield, TrendingUp, Heart, Check } from 'lucide-react';
 
+declare global {
+  interface Window {
+    fbq: any;
+  }
+}
+
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -19,6 +25,15 @@ export default function LandingPage() {
     favicon.rel = 'icon';
     favicon.href = '/favicon.ico';
     document.head.appendChild(favicon);
+
+    // Initialize Facebook Pixel
+    if (typeof window !== 'undefined') {
+      window.fbq = window.fbq || function() {
+        (window.fbq.q = window.fbq.q || []).push(arguments);
+      };
+      window.fbq('init', '12345667'); // Replace with your actual Pixel ID
+      window.fbq('track', 'PageView');
+    }
 
     // Add Facebook Pixel code
     const script = document.createElement('script');
@@ -80,6 +95,7 @@ export default function LandingPage() {
   const plans = [
     {
       name: 'Plan Individual',
+      subtitle: 'Tu plan de salud personalizado.',
       color: '#33658A',
       features: [
         'Turnos en médicos en 72hs',
@@ -96,6 +112,7 @@ export default function LandingPage() {
     },
     {
       name: 'Plan Familiar',
+      subtitle: 'Protege a toda tu familia.',
       color: '#29A2AF',
       features: [
         'Chequeo de Rutina bonificado',
@@ -110,6 +127,7 @@ export default function LandingPage() {
     },
     {
       name: 'Plan Mujer',
+      subtitle: 'Cuidando la salud femenina.',
       color: '#E56399',
       features: [
         'Chequeo Anual Ginecológico bonificado',
@@ -123,6 +141,7 @@ export default function LandingPage() {
     },
     {
       name: 'Plan Tercera Edad',
+      subtitle: 'Atención especializada para adultos mayores.',
       color: '#33658A',
       features: [
         'Consultas Clínicas Bonificadas',
@@ -270,8 +289,9 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {plans.map((plan, index) => (
                 <div key={index} className="border-2 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl bg-white dark:bg-white" style={{ borderColor: plan.color }}>
-                  <div  className="p-6" style={{ backgroundColor: plan.color }}>
+                  <div className="p-6" style={{ backgroundColor: plan.color }}>
                     <h3 className="text-white text-center text-2xl font-bold">{plan.name}</h3>
+                    <p className="text-white text-center mt-2">{plan.subtitle}</p>
                   </div>
                   <div className="p-6">
                     <ul className="space-y-3 mt-4 text-left">
@@ -288,6 +308,9 @@ export default function LandingPage() {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+                        onClick={() => {
+                          window.fbq?.('track', 'Contact');
+                        }}
                       >
                         <MessageCircle className="mr-2 h-5 w-5" />
                         Contactar por WhatsApp
