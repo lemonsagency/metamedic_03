@@ -46,7 +46,7 @@ export default function LandingPage() {
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '12345667');
+      fbq('init', '494389900186290');
       fbq('track', 'PageView');
     `;
     document.head.appendChild(script);
@@ -56,7 +56,7 @@ export default function LandingPage() {
     img.height = 1;
     img.width = 1;
     img.style.display = 'none';
-    img.src = 'https://www.facebook.com/tr?id=12345667&ev=PageView&noscript=1';
+    img.src = 'https://www.facebook.com/tr?id=494389900186290&ev=PageView&noscript=1';
     noscript.appendChild(img);
     document.head.appendChild(noscript);
 
