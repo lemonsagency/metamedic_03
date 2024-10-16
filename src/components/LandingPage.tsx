@@ -46,7 +46,7 @@ export default function LandingPage() {
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '494389900186290');
+      fbq('init', '12345667');
       fbq('track', 'PageView');
     `;
     document.head.appendChild(script);
@@ -56,7 +56,7 @@ export default function LandingPage() {
     img.height = 1;
     img.width = 1;
     img.style.display = 'none';
-    img.src = 'https://www.facebook.com/tr?id=494389900186290&ev=PageView&noscript=1';
+    img.src = 'https://www.facebook.com/tr?id=12345667&ev=PageView&noscript=1';
     noscript.appendChild(img);
     document.head.appendChild(noscript);
 
@@ -308,8 +308,12 @@ export default function LandingPage() {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
-                        onClick={() => {
-                          window.fbq?.('track', 'Contact');
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (typeof window !== 'undefined' && window.fbq) {
+                            window.fbq('track', 'Contact');
+                          }
+                          window.open(e.currentTarget.href, '_blank');
                         }}
                       >
                         <MessageCircle className="mr-2 h-5 w-5" />
