@@ -68,7 +68,7 @@ export default function LandingPage() {
       color: '#33658A',
       features: [
         'Turnos en médicos en 72hs',
-        'Este PLAN Incluye 3 consultas gratis por año',
+        'Este PLAN Incluye consultas bonificadas por año',
         'Importantes descuentos en más de 90 especialidades y prácticas médicas',
         'Asistencia por ROBO en Vía Publica',
         'Odontología – 1ra consulta Gratis',
@@ -100,12 +100,13 @@ export default function LandingPage() {
       color: '#E56399',
       features: [
         'Chequeo Anual Ginecológico bonificado',
-        'Consultas Ginecológicas gratis y sin límite',
-        'Seguro de Cáncer Femenino hasta $2.500.000',
+        'Consultas Ginecológicas bonificadas',
+        'Seguro de Cáncer Femenino',
         'Asistencia Nutricional Telefónica',
         'Asistencia por ROBO en Vía Publica',
-        'Odontología – 1ra consulta Gratis',
-        '3 Consultas GRATIS por año',
+        'Odontología',
+        'Videoconsulta',
+        'Emergencias médicas 24 hs',
       ],
     },
     {
