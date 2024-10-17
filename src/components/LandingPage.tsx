@@ -71,7 +71,7 @@ export default function LandingPage() {
         'Este PLAN Incluye consultas bonificadas por año',
         'Importantes descuentos en más de 90 especialidades y prácticas médicas',
         'Asistencia por ROBO en Vía Publica',
-        'Odontología – 1ra consulta Gratis',
+        'Odontología',
         'Videoconsulta',
         'Descuentos en Farmacias',
         'Seguro de Cirugías',
@@ -86,7 +86,7 @@ export default function LandingPage() {
       features: [
         'Chequeo de Rutina bonificado',
         'Importantes descuentos en más de 90 especialidades y prácticas médicas',
-        'Este PLAN Incluye 3 consultas gratis por año',
+        'Este PLAN Incluye consultas bonificadas',
         'Asistencia por ROBO en Vía Publica, para toda tu familia',
         'Descuentos en Farmacias',
         'Seguro por Diagnóstico de Cáncer',
