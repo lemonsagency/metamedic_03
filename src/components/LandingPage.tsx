@@ -9,6 +9,8 @@ declare global {
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [script, setScript] = useState<HTMLScriptElement | null>(null);
+  const [noscript, setNoscript] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     // Update the document title
@@ -26,46 +28,13 @@ export default function LandingPage() {
     favicon.href = '/favicon.ico';
     document.head.appendChild(favicon);
 
-    // Initialize Facebook Pixel
-    if (typeof window !== 'undefined') {
-      window.fbq = window.fbq || function() {
-        (window.fbq.q = window.fbq.q || []).push(arguments);
-      };
-      window.fbq('init', '12345667'); // Replace with your actual Pixel ID
-      window.fbq('track', 'PageView');
-    }
 
-    // Add Facebook Pixel code
-    const script = document.createElement('script');
-    script.innerHTML = `
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '12345667');
-      fbq('track', 'PageView');
-    `;
-    document.head.appendChild(script);
-
-    const noscript = document.createElement('noscript');
-    const img = document.createElement('img');
-    img.height = 1;
-    img.width = 1;
-    img.style.display = 'none';
-    img.src = 'https://www.facebook.com/tr?id=12345667&ev=PageView&noscript=1';
-    noscript.appendChild(img);
-    document.head.appendChild(noscript);
+    // Add Facebook Pixel code (Removed)
 
     // Cleanup function
     return () => {
       document.head.removeChild(metaDescription);
       document.head.removeChild(favicon);
-      document.head.removeChild(script);
-      document.head.removeChild(noscript);
     };
   }, []);
 
@@ -208,6 +177,16 @@ export default function LandingPage() {
     },
   ];
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // Facebook Pixel tracking
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'Lead');
+    }
+    // Open WhatsApp link in a new tab
+    window.open(e.currentTarget.href, '_blank');
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-white text-[#262626] dark:text-[#262626] font-poppins">
       {/* Announcement Bar */}
@@ -308,13 +287,7 @@ export default function LandingPage() {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          if (typeof window !== 'undefined' && window.fbq) {
-                            window.fbq('track', 'Contact');
-                          }
-                          window.open(e.currentTarget.href, '_blank');
-                        }}
+                        onClick={handleClick}
                       >
                         <MessageCircle className="mr-2 h-5 w-5" />
                         Contactar por WhatsApp
@@ -414,7 +387,7 @@ export default function LandingPage() {
                 alt="MetaMedic"
                 className="h-10 w-auto mb-4"
               />
-              <p>Emergencias: 0810 220 3220</p>
+              <p>Atencion al Cliente: 0810 220 3220</p>
               <p>Email: info@metamedic.com</p>
             </div>
             <div className="flex space-x-6">
