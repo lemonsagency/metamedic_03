@@ -67,8 +67,8 @@ export default function LandingPage() {
       subtitle: 'Tu plan de salud personalizado.',
       color: '#33658A',
       features: [
-        'Turnos en médicos en 72hs',
-        'Este PLAN Incluye consultas bonificadas por año',
+        'Turnos médicos en 72hs',
+        'Este PLAN Incluye consultas bonificadas',
         'Importantes descuentos en más de 90 especialidades y prácticas médicas',
         'Asistencia por ROBO en Vía Publica',
         'Odontología',
