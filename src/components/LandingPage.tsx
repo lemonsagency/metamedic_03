@@ -19,7 +19,7 @@ export default function LandingPage() {
     // Add meta description
     const metaDescription = document.createElement('meta');
     metaDescription.name = 'description';
-    metaDescription.content = 'Planes de asistencia médica accesibles, con turnos en 72 horas y muy cerca tuyo.';
+    metaDescription.content = 'Planes de asistencia médica accesibles, con turnos en 72 horas y muy cerca tuyo!';
     document.head.appendChild(metaDescription);
 
     // Add favicon
